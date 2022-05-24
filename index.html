@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Wind Particle</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function moveTo(newViewState) {
+        if (!newViewState) {
+          console.log("No View State defined, request ignored");
+          return;
+        }
+        app.moveView(newViewState);
+      }
+    </script>
+  </body>
+</html>
