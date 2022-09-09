@@ -3,6 +3,8 @@ import { BitmapLayer, GeoJsonLayer } from "@deck.gl/layers";
 import { TileLayer } from "@deck.gl/geo-layers";
 import { ParticleLayer } from "deck.gl-particle";
 
+import { MAPBOX_TILE } from "./constants/environment";
+
 function isValidDate(d) {
   return d instanceof Date && !isNaN(d);
 }
@@ -35,7 +37,7 @@ if (!isValidDate(selectedDate)) {
 
 const year = String(selectedDate.getUTCFullYear());
 const month = String(selectedDate.getUTCMonth() + 1).padStart(2, "0");
-const date = String(selectedDate.getUTCDate());
+const date = String(selectedDate.getUTCDate()).padStart(2, "0");
 const hour = String(selectedDate.getUTCHours()).padStart(2, "0");
 
 const particleImageUrl = particleBaseUrl
@@ -124,7 +126,7 @@ function render() {
     }),
     new TileLayer({
       id: "basemapbox",
-      data: "[YOUR_MAPBOX_TILE_HERE]",
+      data: MAPBOX_TILE,
       minZoom: 0,
       tileSize: 256,
       renderSubLayers: (props) => {

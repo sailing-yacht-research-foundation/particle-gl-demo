@@ -1,3 +1,4 @@
+const Dotenv = require("dotenv-webpack");
 // NOTE: To use this example standalone (e.g. outside of deck.gl repo)
 // delete the local development overrides at the bottom of this file
 
@@ -11,6 +12,9 @@ const CONFIG = {
   },
 
   plugins: [
+    new Dotenv({
+      systemvars: true,
+    }),
     new HtmlWebpackPlugin({
       template: "./index.html",
       title: "Wind Particle",
